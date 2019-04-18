@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="home">
-      homehahhahahahaha
+      helloword
     </div>
-    <router-link to='/list'>列表页</router-link>
   </div>
 
 </template>
