@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key = "item.id">
+      <li class="item border-bottom" v-for="item of list" :key = "item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl"/>
         </div>
@@ -19,26 +19,8 @@
 <script>
   export default {
     name:'HomeRecommend',
-    data () {
-      return{
-        recommendList:[{
-          id: '0001',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/1807/ad/ad574bfe6c9e1ceda3.img.png_200x200_ea7a0734.png',
-          title:'成都欢乐谷',
-          desc:'超级过瘾过山车让你爽到怀疑人生'
-        },{
-          id: '0002',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/1809/1f/1f39774291457a42a3.img.jpg_200x200_e2d8001d.jpg',
-          title:'石象湖',
-          desc:'看花好去处'
-        },{
-          id: '0003',
-          imgUrl:'http://img1.qunarzz.com/sight/p0/1612/1d/1d9a740c1f9e0efaa3.img.jpg_200x200_63285bd9.jpg',
-          title:'成都海昌极地海洋公园',
-          desc:'蠢萌蠢萌企鹅陪你爽翻这个春天'
-        }
-        ]
-      }
+    props:{
+      list:Array
     }
   }
 </script>
@@ -79,5 +61,4 @@
       margin-top :.2rem
       color:#fff
       line-height :.4rem
-
 </style>
