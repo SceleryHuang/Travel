@@ -17,12 +17,12 @@
 </template>
 
 <script>
-  export default {
-    name:'HomeRecommend',
-    props:{
-      list:Array
-    }
+export default {
+  name: 'HomeRecommend',
+  props: {
+    list: Array
   }
+}
 </script>
 
 <style lang = "stylus" scoped>

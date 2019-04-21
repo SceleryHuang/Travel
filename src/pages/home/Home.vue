@@ -28,32 +28,32 @@ export default{
     HomeWeekend
   },
   data () {
-    return{
-      city:'',
-      swiperList : [],
+    return {
+      city: '',
+      swiperList: [],
       iconList: [],
       recommendList: [],
-      weekendList:[]
+      weekendList: []
     }
   },
-  methods:{
+  methods: {
     getHomeInfo () {
       axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
-      if (res.ret && res.data){
+      if (res.ret && res.data) {
         const data = res.data
         this.city = data.city
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
-        this.weekendList = data .weekendList
+        this.weekendList = data.weekendList
       }
     }
   },
   mounted () {
-    this.getHomeInfo ()
+    this.getHomeInfo()
   }
 }
 </script>
