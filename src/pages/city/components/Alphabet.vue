@@ -13,6 +13,16 @@
 </template>
 
 <script>
+document.addEventListener('handleTouchStart', function (event) {
+  // 判断默认行为是否可以被禁用
+  if (event.cancelable) {
+    // 判断默认行为是否已经被禁用
+    console.log('over')
+    if (!event.defaultPrevented) {
+      event.preventDefault()
+    }
+  }
+}, false)
 export default {
   name: 'CityAlphabet',
   props: {
@@ -29,24 +39,34 @@ export default {
   },
   data () {
     return {
-      touchStatus: false
+      touchStatus: false,
+      startY: 0,
+      timmer: null
     }
+  },
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
   },
   methods: {
     handleLetterClick (e) {
-      this.$emit('change', e.target.innerHTML)
+      this.$emit('change', e.target.innerText)
+      console.log(e.target.innerText)
     },
     handleTouchStart () {
       this.touchStatus = true
     },
     handleTouchMove (e) {
-      if (this.touchStatus === true) {
-        const startY = this.$refs['A'][0].offsetTop
-        const touchY = e.touches[0].clientY - 79
-        const index = Math.floor((touchY - startY) / 20)
-        if (index >= 0 && index < this.letters.length) {
-          this.$emit('change', this.letters[index])
+      if (this.touchStatus) {
+        if (this.timmer) {
+          clearTimeout(this.timmer)
         }
+        this.timmer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 79
+          const index = Math.floor((touchY - this.startY) / 20)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 16)
       }
     },
     handleTouchEnd () {

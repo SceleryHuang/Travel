@@ -5,7 +5,7 @@
     <city-list
       :cities = "cities"
       :hot = "hotCities"
-      letter = "letter"
+      :letter = "letter"
     ></city-list>
     <city-alphabet
       :cities = "cities"
@@ -20,6 +20,7 @@ import CitySearch from './components/Search'
 import CityList from './components/List'
 import CityAlphabet from './components/Alphabet'
 import axios from 'axios'
+
 export default {
   name: 'City',
   components: {
@@ -32,7 +33,7 @@ export default {
     return {
       cities: {},
       hotCities: [],
-      letter: []
+      letter: ''
     }
   },
   methods: {
@@ -49,6 +50,7 @@ export default {
     },
     handleLetterChange (letter) {
       this.letter = letter
+      console.log('send:' + letter)
     }
   },
   mounted () {
