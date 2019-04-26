@@ -50,7 +50,6 @@ export default {
     },
     handleLetterChange (letter) {
       this.letter = letter
-      console.log('send:' + letter)
     }
   },
   mounted () {
