@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <router-view/>
-    <!--    显示当前路由地址显示的内容-->
+    <keep-alive>
+        <router-view/>
+    </keep-alive>
+    <!--   显示当前路由地址显示的内容-->
   </div>
 </template>
 
