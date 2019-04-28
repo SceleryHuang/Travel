@@ -1,19 +1,26 @@
 <template>
-  <div class="banner">
-    <img class="banner-img" src = "//img1.qunarzz.com/sight/p0/201403/03/77a8f60ea243465fdf2c937e2edd33dd.jpg_600x330_70c8f6d2.jpg" />
-    <div class="banner-info">
-      <div class="banner-title">国色天香水上乐园</div>
-      <div class="banner-number">
-        <span class="banner-icon">&#xe6dd;</span>
-        39
+  <div>
+    <div class="banner">
+      <img class="banner-img" src = "//img1.qunarzz.com/sight/p0/201403/03/77a8f60ea243465fdf2c937e2edd33dd.jpg_600x330_70c8f6d2.jpg" />
+      <div class="banner-info">
+        <div class="banner-title">国色天香水上乐园</div>
+        <div class="banner-number">
+          <span class="banner-icon">&#xe626;</span>
+          39
+        </div>
       </div>
     </div>
+    <common-gallary></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary'
 export default {
-  name: 'DetailBanner'
+  name: 'DetailBanner',
+  components: {
+    CommonGallary
+  }
 }
 </script>
 
@@ -34,6 +41,7 @@ export default {
       bottom :0
       line-height :0.6rem
       color : #fff
+      background-image: linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.8))
       .banner-title
         flex:1
         font-size :.32rem
@@ -48,6 +56,4 @@ export default {
         font-size :.24rem
         .banner-icon
           font-size :.24rem
-
-
 </style>

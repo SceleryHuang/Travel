@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import DetailBanner from './components/Banner'
+import DetailBanner from './components/Banner'
 export default {
   name: 'Detail',
   components: {

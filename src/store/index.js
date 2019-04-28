@@ -14,7 +14,7 @@ export default new Vuex.Store({
   // },
   // 没有异步数据和批量操作的时候，可以不通过action转发
   mutations,
-  getters:{
+  getters: {
     doubleCity (state) {
       return state.city + ' ' + state.city
     }
