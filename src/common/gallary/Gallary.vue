@@ -1,13 +1,16 @@
 <template>
-  <div class="container">
+  <div class="container" @click = "handleGallaryClick">
     <div class="wapper">
-      <swiper :options="swiperOption" v-if = "showSwiper">
+      <swiper :options="swiperOptions">
       <!-- slides -->
-      <swiper-slide v-for = 'item of list' :key="item.id">
-        <img class="gallary-img" :src="item.imgUrl"/>
-      </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
+        <swiper-slide
+          v-for = "(item, index) in imgs"
+          :key="index"
+        >
+          <img class="gallary-img" :src="item"/>
+        </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
     </div>
   </div>
 </template>
@@ -15,17 +18,36 @@
 <script>
 export default {
   name: 'CommonGallary',
-  data(){
-    return{
-      swiperOption: {
-        pagination: '.swiper-pagination'
+  props: {
+    imgs: {
+      type: Array,
+      default () {
+        return []
       }
+    }
+  },
+  data () {
+    return {
+      swiperOptions: {
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
+        observeParents: true,
+        observer: true
+        // 检测到自己或者父级的有变化时，就刷新自己的计算
+      }
+    }
+  },
+  methods: {
+    handleGallaryClick () {
+      this.$emit('close')
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+  .container >>> .swiper-container
+    overflow :inherit
   .container
     display :flex
     flex-direction :column
@@ -40,8 +62,10 @@ export default {
     .wapper
       width :100%
       height :0
-      overflow : hidden
       padding-bottom :100%
       .gallary-img
         width :100%
+      ·swiper-pagination
+        color :#fff !important
+        bottom :-1rem
 </style>
