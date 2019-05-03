@@ -1,15 +1,19 @@
 <template>
   <div class="header">
     城市选择
-    <router-link to = "/">
-    <div class="iconfont header-back">&#xe624;</div>
-    </router-link>
+    <fade-animation>
+      <router-link to = "/">
+        <div class="iconfont header-back">&#xe624;</div>
+      </router-link>
+    </fade-animation>
   </div>
 </template>
 
 <script>
+import FadeAnimation from '../../../common/fade/FadeAnimation'
 export default {
-  name: 'CityHeader'
+  name: 'CityHeader',
+  components: {FadeAnimation}
 }
 
 </script>

@@ -19,6 +19,7 @@ import CityHeader from './components/CityHeader'
 import CitySearch from './components/Search'
 import CityList from './components/List'
 import CityAlphabet from './components/Alphabet'
+import FadeAnimation from 'common/fade/FadeAnimation'
 import axios from 'axios'
 
 export default {
@@ -27,7 +28,8 @@ export default {
     CityHeader,
     CitySearch,
     CityList,
-    CityAlphabet
+    CityAlphabet,
+    FadeAnimation
   },
   data () {
     return {
